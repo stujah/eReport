@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  expense_report_id: 1
+  date: MyString
+  description: MyString
+  price: 9.99
+  type: 
+
+two:
+  expense_report_id: 1
+  date: MyString
+  description: MyString
+  price: 9.99
+  type: 

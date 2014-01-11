@@ -1,0 +1,39 @@
+= stylesheet_link_tag "expense_reports"
+= javascript_include_tag "expense_reports"
+= form_for ([@user, @expense_report]) do |f|
+  %h1
+    New Expense Report
+  %div.form-group
+    = f.label :purpose, "Purpose", style: "display: block"
+    = f.text_field :purpose, style: "display: block; margin-bottom: 10px"
+  %div.form-group
+    = f.label :date_range, "Date Range", style: "display: block"
+    = f.text_field :date_range, style: "display: block; margin-bottom: 10px"
+    
+  = f.fields_for :expense_items do |fi|
+    %div.table-responsive
+      %table.table
+        %tr
+          %td
+            = fi.label :date, "Date", class: "inline"
+            = fi.text_field :date, placeholder: "mm/dd"
+          %td 
+            = fi.label :description, "Description"
+            = fi.text_field :description
+          %td
+            = fi.label :expense_type, "Expense Type"
+            = fi.select :expense_type, ["Meals", "Transportation", "Hotel", "Entertainment", "Misc."].sort, include_blank: true
+          %td.price
+            = fi.label :price, "Price"
+            %div.price.input-prepend.input-append
+              %span.add-on
+                $
+              = fi.text_field :price, id: "price-amount"
+          %td
+            = fi.label :destroy, "Remove"
+            = fi.check_box :_destroy, class: "remove-fields"
+  %div
+    %div.add-items= link_to_add_fields "Add Expense Items", f, :expense_items
+    %tr
+      %th
+        = f.submit "Create Expense Report", class: "small button radius", id: "expense-button"

@@ -1,0 +1,38 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$margin: 20px;
+
+.expense-report-section-header {
+  margin-top: 30px
+}
+
+.expense-report-block {
+  margin-bottom: 30px;
+  margin-left: $margin
+}
+
+#expense-date-period {
+  margin-left: $margin;
+}
+
+.create-new-expense-report {
+  margin-left: $margin
+}
+
+.expense-items {
+  display: none;
+  margin-left: $margin;
+}
+
+#date-range {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.expense-report-section {
+  margin-bottom: $margin;
+  margin-left: $margin;
+}
+

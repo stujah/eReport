@@ -1,0 +1,40 @@
+= stylesheet_link_tag "users"
+= stylesheet_link_tag "expense_reports"
+= javascript_include_tag "users", "transition"
+%h1
+  = @user.first_name + " " + @user.last_name
+%div.create-new-expense-report
+  = link_to "Create New Expense Report", new_user_expense_report_path(current_user), class: "new-expense-report"
+  = hidden_field_tag :user_id, value: @user
+
+%h4.expense-report-section-header
+  = "Expense Reports"    
+- @user.expense_reports.each do |er|
+  %div.collapse-group
+    %h3.expense-report-section
+      = link_to er.purpose, "#", class: "expense-report-title"
+      %span#date-range= er.date_range
+    %div.expense-items
+      %table.table
+        %tr
+          - er.expense_items.each do |ei|
+            %tr
+              %td
+                %label
+                  Date
+                = text_field :expense_item, :date, value: ei.date, disabled: true
+              %td
+                %label
+                  Description
+                = text_field :expense_item, :description, value: ei.description, disabled: true
+              %td
+                %label
+                  Expense Type
+                = text_field :expense_item, :expense_type, value: ei.expense_type, disabled: true
+              %td
+                %label
+                  Price
+                = text_field :expense_item, :price, value: ei.price, disabled: true
+          
+
+    

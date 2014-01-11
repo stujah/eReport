@@ -1,0 +1,20 @@
+%table.expense-items-table.table
+  %tr
+    %td
+      = fi.label :date, "Date", class: "inline"
+      = fi.text_field :date, placeholder: "mm/dd"
+    %td 
+      = fi.label :description, "Description"
+      = fi.text_field :description
+    %td
+      = fi.label :expense_type, "Expense Type"
+      = fi.select :expense_type, ["Meals", "Transportation", "Hotel", "Entertainment", "Misc."].sort, include_blank: true
+    %td.price
+      = fi.label :price, "Price"
+      %div.price.input-prepend.input-append
+        %span.add-on
+          $
+        = fi.text_field :price, id: "price-amount"
+    %td
+      = fi.label :destroy, "Remove"
+      = fi.check_box :_destroy, class: "remove-fields"

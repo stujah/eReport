@@ -1,0 +1,14 @@
+// Place all the styles related to the expense_reports controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$margin: 20px;
+
+table.expense-items {
+  padding-top: 15px;
+}
+
+#expense-button {
+  margin-top: 10px;
+  display: block;
+}
